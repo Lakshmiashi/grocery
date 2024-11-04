@@ -9,6 +9,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constant.Constant;
 import elementRepository.HomePage;
 import elementRepository.LoginPage;
 import elementRepository.SubCategory;
@@ -30,7 +31,7 @@ public class SubCategoryTest extends BaseClass {
 		String actual = sp.readHeading();
 		String expected = "Add Sub Category";
 		System.out.println(actual);
-		Assert.assertEquals(actual, expected, ":Heading Text not As Expected");
+		Assert.assertEquals(actual, expected, Constant.sp_verifySubcategory);
 	}
 
 	@Test(priority = 2)
@@ -41,9 +42,9 @@ public class SubCategoryTest extends BaseClass {
 		sp.openAddSubCategory();
 		String subcategory = "tab" + gu.generateCurrentDateAndTime();
 		sp.addNewItem(3, subcategory);
-		Assert.assertEquals(sp.readAlertdmessage(), "Alert!", "Sub Category Created Successfully");
+		Assert.assertEquals(sp.readAlertdmessage(), "Alert!", Constant.sp_verifyAddNewItem);
 		hp.openSubCategory();
-		Assert.assertEquals(sp.readTableElement(1, 1), subcategory, "Sub Category Name Not As Expected");
+		Assert.assertEquals(sp.readTableElement(1, 1), subcategory, Constant.sp_verifyAddNewItemmsg);
 
 	}
 
@@ -54,10 +55,10 @@ public class SubCategoryTest extends BaseClass {
 		sp = hp.openSubCategory();
 		String subCategory = sp.readTableElement(1, 1);
 		sp.deleteTableElement(subCategory);
-		Assert.assertEquals(sp.readAlertdmessage(), "Alert!", "Sub Category Deleted Successfully");
+		Assert.assertEquals(sp.readAlertdmessage(), "Alert!", Constant.sp_verifyDeleteItem);
 		hp.openSubCategory();
 		boolean TableStatus = sp.readTableDeleteElement(subCategory);
-		Assert.assertEquals(TableStatus, true, "Table status not as expected");
+		Assert.assertEquals(TableStatus, true, Constant.sp_verifyDeleteItemmsg);
 	}
 
 	@Test(priority = 3)

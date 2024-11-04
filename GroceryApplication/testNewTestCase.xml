@@ -1,5 +1,4 @@
-<suite name="GroceryApplication" parallel="tests" thread-count="2"> <!--
-	parallel="methods"/"classes" tests,method,classes can run-->
+<suite name="GroceryApplication">
 	<test name="chromeTest">
 		<listeners>
 			<listener class-name="utilities.ExtenetReport"></listener>
@@ -9,9 +8,10 @@
 		<classes>
 			<class name="testCases.LoginPageTest"></class>
 			<class name="testCases.SubCategoryTest"></class>
-			<class name="testCases.ManageNewsTest"></class>
+			 <class name="testCases.ManageNewsTest"></class>
 			<class name="testCases.ManageContactTest"></class>
 		</classes>
 	</test>
-	
+
+
 </suite>

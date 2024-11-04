@@ -35,7 +35,7 @@ public class LoginPageTest extends BaseClass {
   public void verifyLoginWithInValidCredentials(String userName, String password) {
 	lp=new LoginPage(driver);
 	lp.loginData(userName,password);
-	Assert.assertEquals( lp.readInvalidmessage(),"Alert!","Alert message  not As Expected");  
+	Assert.assertEquals( lp.readInvalidmessage(),"Alert!",Constant.lp_verifyLoginWithInValidCredentials);  
   }
   
   
